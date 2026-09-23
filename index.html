@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JalebiMC — India's Premier Cross-Play Minecraft Network</title>
+<meta name="description" content="JalebiMC is an Indian Minecraft network featuring Lifesteal SMP, Earth SMP, PvP and Minigames with Java and Bedrock cross-play.">
+<meta name="theme-color" content="#ff8a00">
+<link rel="canonical" href="https://jalebimc.in/">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="JalebiMC — India's Premier Cross-Play Minecraft Network">
+<meta property="og:description" content="Lifesteal SMP, Earth SMP, PvP and Minigames — Java and Bedrock cross-play, built for players across India.">
+<meta property="og:url" content="https://jalebimc.in/">
+<meta property="og:locale" content="en_IN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JalebiMC — India's Premier Cross-Play Minecraft Network">
+<meta name="twitter:description" content="Lifesteal SMP, Earth SMP, PvP and Minigames — Java and Bedrock cross-play, built for players across India.">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='64' y2='64'%3E%3Cstop offset='0' stop-color='%23ff7a00'/%3E%3Cstop offset='1' stop-color='%23ffae00'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Ctext x='32' y='45' font-family='Arial,sans-serif' font-weight='800' font-size='36' fill='%230f0f12' text-anchor='middle'%3EJ%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+<style>
+/* =========================================================
+   1. VARIABLES
+   ========================================================= */
+:root {
+  --bg: #0f0f12;
+  --bg-elevated: #17171c;
+  --bg-elevated-2: #1d1d23;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.16);
+
+  --text-primary: #f3ede4;
+  --text-secondary: #a89e91;
+  --text-tertiary: #756c60;
+
+  --accent-1: #ff7a00;
+  --accent-2: #ff8a00;
+  --accent-3: #ffae00;
+  --accent-gradient: linear-gradient(135deg, var(--accent-1), var(--accent-3));
+  --accent-gradient-soft: linear-gradient(160deg, rgba(255,122,0,0.14), rgba(255,174,0,0.03));
+
+  --status-online: #3ecf6a;
+  --status-offline: #ef4a4a;
+  --status-pending: var(--accent-3);
+
+  --shadow-soft: 0 24px 60px -24px rgba(0,0,0,0.65);
+  --shadow-glow: 0 12px 40px -12px rgba(255, 138, 0, 0.45);
+
+  --font-display: 'Poppins', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --font-body: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+
+  --container: 1200px;
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --space-section: clamp(4rem, 9vw, 7.5rem);
+
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast: 160ms;
+  --dur-base: 300ms;
+}
+
+/* =========================================================
+   2. RESET
+   ========================================================= */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+html, body { height: 100%; }
+body {
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+ul { list-style: none; }
+::selection { background: var(--accent-2); color: #16100a; }
+
+/* =========================================================
+   3. BASE STYLES
+   ========================================================= */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 5vw, 2.5rem);
+}
+.container-narrow { max-width: 760px; margin-inline: auto; }
+
+.section { padding-block: var(--space-section); position: relative; }
+.section-head { max-width: 640px; margin-bottom: clamp(2rem, 5vw, 3.25rem); }
+.section-head.center { margin-inline: auto; text-align: center; }
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-3);
+  margin-bottom: 1.1rem;
+}
+.eyebrow::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-gradient);
+  flex-shrink: 0;
+}
+
+h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.12; color: var(--text-primary); font-weight: 700; }
+p { color: var(--text-secondary); }
+.lede { font-size: clamp(1.02rem, 2vw, 1.15rem); max-width: 60ch; color: var(--text-secondary); }
+
+.gradient-text {
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.glass {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: var(--shadow-soft);
+}
+
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.9rem 1.7rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  min-height: 48px;
+  white-space: nowrap;
+  transition: transform var(--dur-base) var(--ease), box-shadow var(--dur-base) var(--ease),
+              background var(--dur-base) var(--ease), border-color var(--dur-base) var(--ease);
+}
+.btn-primary {
+  background: var(--accent-gradient);
+  color: #16100a;
+  box-shadow: var(--shadow-glow);
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 46px -10px rgba(255,138,0,0.55); }
+.btn-secondary {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border-strong);
+  color: var(--text-primary);
+}
+.btn-secondary:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.3); transform: translateY(-2px); }
+.btn-full { width: 100%; }
+
+/* =========================================================
+   4. TYPOGRAPHY
+   ========================================================= */
+h1 { font-size: clamp(2.75rem, 9vw, 5.75rem); letter-spacing: -0.02em; }
+h2 { font-size: clamp(1.9rem, 4.5vw, 2.7rem); letter-spacing: -0.01em; }
+h3 { font-size: 1.15rem; }
+.tagline {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.15rem, 2.6vw, 1.5rem);
+  color: var(--text-primary);
+}
+
+/* =========================================================
+   5. NAVIGATION
+   ========================================================= */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding-block: 1.1rem;
+  background: rgba(15,15,18,0.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid transparent;
+  transition: background var(--dur-base) var(--ease), border-color var(--dur-base) var(--ease), padding var(--dur-base) var(--ease);
+}
+.site-header.is-scrolled {
+  background: rgba(15,15,18,0.88);
+  border-bottom-color: var(--border);
+  padding-block: 0.8rem;
+}
+.nav-row { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.brand { display: flex; align-items: center; gap: 0.65rem; font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; }
+.brand-mark {
+  width: 34px; height: 34px; border-radius: 9px;
+  background: var(--accent-gradient);
+  display: grid; place-items: center;
+  color: #16100a; font-weight: 800; font-size: 1rem;
+  box-shadow: 0 6px 18px -6px rgba(255,138,0,0.55);
+  flex-shrink: 0;
+}
+.nav-links { display: none; align-items: center; gap: 2.1rem; }
+.nav-links a {
+  font-size: 0.92rem; font-weight: 500; color: var(--text-secondary);
+  position: relative; padding-block: 0.3rem;
+  transition: color var(--dur-fast) var(--ease);
+}
+.nav-links a:hover, .nav-links a:focus-visible { color: var(--text-primary); }
+.nav-links a::after {
+  content: ''; position: absolute; left: 0; right: 0; bottom: -2px; height: 2px;
+  background: var(--accent-gradient); transform: scaleX(0); transform-origin: left;
+  transition: transform var(--dur-base) var(--ease);
+}
+.nav-links a:hover::after, .nav-links a:focus-visible::after { transform: scaleX(1); }
+
+.nav-actions { display: flex; align-items: center; gap: 0.75rem; }
+.nav-cta { display: none; }
+
+.menu-toggle {
+  display: grid; place-items: center; width: 44px; height: 44px; border-radius: 10px;
+  background: rgba(255,255,255,0.04); border: 1px solid var(--border); flex-shrink: 0;
+}
+.menu-toggle span { position: relative; width: 18px; height: 2px; background: var(--text-primary); display: block; transition: background var(--dur-fast) var(--ease); }
+.menu-toggle span::before, .menu-toggle span::after {
+  content: ''; position: absolute; left: 0; width: 18px; height: 2px; background: var(--text-primary);
+  transition: transform var(--dur-base) var(--ease), top var(--dur-base) var(--ease);
+}
+.menu-toggle span::before { top: -6px; }
+.menu-toggle span::after { top: 6px; }
+.menu-toggle[aria-expanded="true"] span { background: transparent; }
+.menu-toggle[aria-expanded="true"] span::before { top: 0; transform: rotate(45deg); }
+.menu-toggle[aria-expanded="true"] span::after { top: 0; transform: rotate(-45deg); }
+
+.mobile-menu {
+  position: fixed; inset: 0;
+  background: rgba(11,11,14,0.98);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 6.5rem clamp(1.25rem, 5vw, 2.5rem) 2rem;
+  display: flex; flex-direction: column; gap: 0.15rem;
+  transform: translateY(-12px); opacity: 0; visibility: hidden;
+  transition: transform var(--dur-base) var(--ease), opacity var(--dur-base) var(--ease), visibility var(--dur-base) linear;
+  overflow-y: auto;
+  z-index: 90;
+}
+.mobile-menu.is-open { transform: translateY(0); opacity: 1; visibility: visible; }
+.mobile-menu a { padding: 1rem 0; font-size: 1.2rem; font-weight: 600; border-bottom: 1px solid var(--border); }
+.mobile-menu .btn { margin-top: 1.5rem; align-self: flex-start; }
+body.menu-open { overflow: hidden; }
+
+/* =========================================================
+   6. HERO
+   ========================================================= */
+.hero { padding-top: clamp(3.25rem, 9vw, 5.5rem); padding-bottom: clamp(2rem, 5vw, 3rem); position: relative; overflow: hidden; }
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -22%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(900px, 150vw);
+  height: 640px;
+  background: radial-gradient(closest-side, rgba(255,122,0,0.18), transparent 72%);
+  pointer-events: none;
+  z-index: -1;
+}
+.hero-inner { text-align: center; max-width: 780px; margin-inline: auto; display: flex; flex-direction: column; align-items: center; }
+.hero .eyebrow { justify-content: center; }
+.hero h1 { margin-bottom: 0.85rem; }
+.hero .tagline { margin-bottom: 1.1rem; }
+.hero-support { color: var(--text-secondary); max-width: 56ch; margin-bottom: 1.85rem; font-size: 1.02rem; }
+
+.hero-actions { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 0.85rem; margin-bottom: 1.35rem; }
+.hero-actions.ctas { margin-bottom: 0; }
+
+.status-pill {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  padding: 0.55rem 1.15rem; border-radius: 999px;
+  background: rgba(255,255,255,0.04); border: 1px solid var(--border);
+  font-size: 0.85rem; font-weight: 600; color: var(--text-secondary);
+}
+.status-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--text-tertiary); flex-shrink: 0; }
+.status-pill[data-state="online"] { color: var(--text-primary); }
+.status-pill[data-state="online"] .status-dot { background: var(--status-online); box-shadow: 0 0 0 4px rgba(62,207,106,0.16); }
+.status-pill[data-state="offline"] .status-dot { background: var(--status-offline); box-shadow: 0 0 0 4px rgba(239,74,74,0.16); }
+.status-pill[data-state="pending"] .status-dot { background: var(--status-pending); animation: statusPulse 1.6s ease-in-out infinite; }
+.status-pill[data-state="unavailable"] .status-dot { background: var(--text-tertiary); }
+@keyframes statusPulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+/* =========================================================
+   7. SERVER CONNECTION CARDS
+   ========================================================= */
+.connect-cards-section { padding-top: 0; padding-bottom: clamp(3rem, 7vw, 5rem); }
+.connect-cards { display: grid; gap: 1.25rem; grid-template-columns: 1fr; }
+
+.ip-card {
+  padding: clamp(1.5rem, 4vw, 2.25rem);
+  border-radius: var(--radius-lg);
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--dur-base) var(--ease), border-color var(--dur-base) var(--ease);
+}
+.ip-card:hover { transform: translateY(-4px); border-color: var(--border-strong); }
+.ip-card::before {
+  content: ''; position: absolute; inset: 0; opacity: 0;
+  background: var(--accent-gradient-soft);
+  transition: opacity var(--dur-base) var(--ease);
+  pointer-events: none;
+}
+.ip-card:hover::before { opacity: 1; }
+.ip-card > * { position: relative; z-index: 1; }
+
+.ip-card-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.4rem; gap: 0.75rem; }
+.ip-card-label { display: flex; align-items: center; gap: 0.75rem; }
+.ip-card-icon {
+  width: 42px; height: 42px; border-radius: 11px; flex-shrink: 0;
+  display: grid; place-items: center;
+  background: rgba(255,138,0,0.12); color: var(--accent-3);
+}
+.ip-card-title { font-family: var(--font-display); font-weight: 700; font-size: 1.02rem; }
+.ip-card-edition { font-size: 0.78rem; color: var(--text-tertiary); font-weight: 500; margin-top: 0.15rem; }
+
+.ip-address {
+  display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; flex-wrap: wrap;
+  background: rgba(0,0,0,0.28); border: 1px solid var(--border); border-radius: var(--radius-sm);
+  padding: 0.95rem 1.1rem; margin-bottom: 1.15rem;
+}
+.ip-address code {
+  font-family: var(--font-mono); font-size: clamp(0.92rem, 2.3vw, 1.05rem);
+  color: var(--text-primary); word-break: break-all;
+}
+
+.ip-meta { display: flex; gap: 1.5rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+.ip-meta-item { font-size: 0.78rem; color: var(--text-tertiary); }
+.ip-meta-item strong { display: block; font-family: var(--font-mono); font-size: 0.95rem; color: var(--text-secondary); font-weight: 600; margin-top: 0.2rem; }
+
+.copy-btn { position: relative; }
+.copy-btn .default-state, .copy-btn .copied-state, .copy-btn .failed-state {
+  display: none; align-items: center; justify-content: center; gap: 0.5rem;
+}
+.copy-btn .default-state { display: flex; }
+.copy-btn[data-copied="true"] .default-state { display: none; }
+.copy-btn[data-copied="true"] .copied-state { display: flex; }
+.copy-btn[data-copy-failed="true"] .default-state { display: none; }
+.copy-btn[data-copy-failed="true"] .failed-state { display: flex; }
+
+/* =========================================================
+   8. LIVE STATUS DETAIL
+   ========================================================= */
+.status-detail { padding-top: 1.1rem; border-top: 1px solid var(--border); font-size: 0.82rem; color: var(--text-tertiary); }
+.status-detail-row { display: flex; align-items: center; justify-content: space-between; gap: 0.6rem; flex-wrap: wrap; }
+.status-detail-row strong { color: var(--text-secondary); font-weight: 600; }
+.status-players { font-family: var(--font-mono); color: var(--text-primary); font-weight: 600; }
+.status-detail-meta {
+  display: flex; justify-content: space-between; gap: 0.6rem; margin-top: 0.5rem;
+  flex-wrap: wrap; font-size: 0.74rem; color: var(--text-tertiary);
+}
+
+/* =========================================================
+   9. ABOUT
+   ========================================================= */
+.about-grid { display: grid; gap: 0; }
+.feature-row {
+  display: grid; grid-template-columns: auto 1fr; gap: 1.15rem; align-items: flex-start;
+  padding-block: 1.5rem; border-top: 1px solid var(--border);
+}
+.feature-row:last-child { border-bottom: 1px solid var(--border); }
+.feature-icon {
+  width: 44px; height: 44px; border-radius: 12px; flex-shrink: 0;
+  background: rgba(255,138,0,0.1); color: var(--accent-3);
+  display: grid; place-items: center;
+}
+.feature-row h3 { margin-bottom: 0.4rem; }
+.feature-row p { font-size: 0.95rem; max-width: 56ch; }
+
+/* =========================================================
+   10. FEATURED GAMEMODES
+   ========================================================= */
+.mode-grid { display: grid; gap: 1.25rem; grid-template-columns: 1fr; }
+.mode-card {
+  padding: clamp(1.6rem, 4vw, 2.1rem);
+  border-radius: var(--radius-lg);
+  display: flex; flex-direction: column; gap: 1.1rem;
+  transition: transform var(--dur-base) var(--ease), border-color var(--dur-base) var(--ease);
+}
+.mode-card:hover { transform: translateY(-4px); border-color: var(--border-strong); }
+.mode-card-icon { width: 50px; height: 50px; border-radius: 14px; display: grid; place-items: center; flex-shrink: 0; }
+.mode-card h3 { font-size: 1.3rem; }
+.mode-desc { font-size: 0.95rem; }
+.mode-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: auto; padding-top: 0.5rem; }
+.mode-tag {
+  font-size: 0.74rem; font-weight: 500; padding: 0.32rem 0.7rem; border-radius: 999px;
+  background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: var(--text-tertiary);
+}
+.mode-card--lifesteal .mode-card-icon { background: rgba(255,90,60,0.15); color: #ff9270; }
+.mode-card--earth .mode-card-icon { background: rgba(255,174,0,0.15); color: var(--accent-3); }
+.mode-card--pvp .mode-card-icon { background: rgba(255,214,120,0.15); color: #ffd678; }
+
+/* =========================================================
+   11. CONNECT
+   ========================================================= */
+.connect-panel { border-radius: var(--radius-lg); padding: clamp(1.5rem, 4vw, 2.25rem); display: grid; gap: 0; }
+.connect-item {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+  padding-block: 1.15rem; border-top: 1px solid var(--border);
+}
+.connect-item:first-child { border-top: 0; padding-top: 0; }
+.connect-item:last-child { padding-bottom: 0; }
+.connect-item-label { display: flex; align-items: center; gap: 0.85rem; }
+.connect-item-label .feature-icon { width: 40px; height: 40px; border-radius: 11px; }
+.connect-item-name { font-weight: 600; font-size: 0.98rem; }
+.connect-item-value { font-family: var(--font-mono); font-size: 0.88rem; color: var(--text-tertiary); margin-top: 0.15rem; }
+.connect-item-action { font-family: var(--font-mono); font-size: 0.9rem; color: var(--text-secondary); }
+
+/* =========================================================
+   12. RULES
+   ========================================================= */
+.rules-grid { display: grid; gap: 1rem; grid-template-columns: 1fr; }
+.rule-card { padding: 1.5rem; border-radius: var(--radius-md); display: flex; gap: 1.1rem; align-items: flex-start; }
+.rule-card h3 { font-size: 1.02rem; margin-bottom: 0.35rem; }
+.rule-card p { font-size: 0.9rem; }
+.rules-footer { display: flex; justify-content: center; margin-top: 2.25rem; }
+
+/* =========================================================
+   13. DISCORD CTA + FOOTER
+   ========================================================= */
+.cta-panel {
+  border-radius: var(--radius-lg);
+  padding: clamp(2.25rem, 7vw, 3.75rem) clamp(1.5rem, 6vw, 3rem);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(255,138,0,0.09), rgba(255,138,0,0.015));
+}
+.cta-panel .lede { margin-inline: auto; margin-bottom: 1.6rem; }
+.cta-list {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem 1.5rem;
+  margin-bottom: 2.1rem; color: var(--text-secondary); font-size: 0.9rem;
+}
+.cta-list li { display: flex; align-items: center; gap: 0.5rem; }
+.cta-list li::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--accent-3); flex-shrink: 0; }
+
+.site-footer { border-top: 1px solid var(--border); padding-block: 3rem 2.25rem; }
+.footer-grid { display: grid; gap: 2.5rem; grid-template-columns: 1fr; margin-bottom: 2.5rem; }
+.footer-brand .brand { margin-bottom: 0.9rem; }
+.footer-brand .footer-domain { font-family: var(--font-mono); font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 0.6rem; }
+.footer-brand p:last-child { font-size: 0.88rem; max-width: 34ch; }
+.footer-links h4 {
+  font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-tertiary);
+  margin-bottom: 1rem; font-family: var(--font-body); font-weight: 600;
+}
+.footer-links ul { display: flex; flex-direction: column; gap: 0.7rem; }
+.footer-links a { font-size: 0.9rem; color: var(--text-secondary); transition: color var(--dur-fast) var(--ease); }
+.footer-links a:hover, .footer-links a:focus-visible { color: var(--text-primary); }
+.footer-bottom {
+  display: flex; flex-direction: column; gap: 0.85rem; padding-top: 2rem;
+  border-top: 1px solid var(--border); font-size: 0.8rem; color: var(--text-tertiary);
+}
+.footer-disclaimer { max-width: 62ch; line-height: 1.65; }
+
+/* =========================================================
+   14. ANIMATIONS
+   ========================================================= */
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity 650ms var(--ease), transform 650ms var(--ease); }
+.reveal.is-visible { opacity: 1; transform: none; }
+
+/* =========================================================
+   15. RESPONSIVE
+   ========================================================= */
+@media (min-width: 640px) {
+  .connect-cards { grid-template-columns: 1fr 1fr; }
+  .rules-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (min-width: 900px) {
+  .nav-links { display: flex; }
+  .nav-cta { display: inline-flex; }
+  .menu-toggle, .mobile-menu { display: none; }
+
+  .mode-grid { grid-template-columns: repeat(3, 1fr); }
+  .footer-grid { grid-template-columns: 1.4fr 1fr 1fr; }
+}
+
+/* =========================================================
+   16. ACCESSIBILITY
+   ========================================================= */
+.skip-link {
+  position: absolute; left: 1rem; top: -60px; z-index: 200;
+  background: var(--accent-3); color: #16100a; padding: 0.75rem 1.25rem;
+  border-radius: 8px; font-weight: 600; font-size: 0.9rem;
+  transition: top var(--dur-fast) var(--ease);
+}
+.skip-link:focus { top: 1rem; }
+
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--accent-3);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal { opacity: 1 !important; transform: none !important; }
+}
+</style>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<header class="site-header" id="siteHeader">
+  <div class="container nav-row">
+    <a href="#top" class="brand" aria-label="JalebiMC home">
+      <span class="brand-mark" aria-hidden="true">J</span>
+      JalebiMC
+    </a>
+
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#modes">Modes</a>
+      <a href="#connect">Connect</a>
+      <a href="#rules">Rules</a>
+    </nav>
+
+    <div class="nav-actions">
+      <a class="btn btn-primary nav-cta" href="https://dsc.gg/jalebimc" target="_blank" rel="noopener noreferrer">Join Discord</a>
+      <button type="button" class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Toggle navigation menu">
+        <span></span>
+      </button>
+    </div>
+  </div>
+
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile">
+    <a href="#about">About</a>
+    <a href="#modes">Modes</a>
+    <a href="#connect">Connect</a>
+    <a href="#rules">Rules</a>
+    <a class="btn btn-primary" href="https://dsc.gg/jalebimc" target="_blank" rel="noopener noreferrer">Join Discord</a>
+  </nav>
+</header>
+
+<main id="main">
+
+  <section class="hero" id="top">
+    <div class="container hero-inner">
+      <span class="eyebrow">India's Cross-Play Minecraft Network</span>
+      <h1 class="gradient-text">JalebiMC</h1>
+      <p class="tagline">India's Premier Cross-Play Minecraft Network</p>
+      <p class="hero-support">Lifesteal SMP, Earth SMP, PvP and Minigames — running on a Velocity network with Paper backends and Geyser cross-play, so Java and Bedrock players connect through the same address.</p>
+
+      <div class="hero-actions">
+        <span class="status-pill" id="networkStatusPill" data-state="pending" role="status" aria-live="polite">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span id="networkStatusText">Checking Network</span>
+        </span>
+      </div>
+
+      <div class="hero-actions ctas">
+        <a class="btn btn-primary" href="#connect">How to Connect</a>
+        <a class="btn btn-secondary" href="https://dsc.gg/jalebimc" target="_blank" rel="noopener noreferrer">Join Discord</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="connect-cards-section reveal">
+    <div class="container">
+      <div class="connect-cards">
+
+        <article class="ip-card glass">
+          <div class="ip-card-head">
+            <div class="ip-card-label">
+              <span class="ip-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
+                  <path d="M4 8h12v6a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V8Z"/>
+                  <path d="M16 9h1.5a2.5 2.5 0 0 1 0 5H16"/>
+                  <path d="M8 3.5c0 1-1 1-1 2s1 1 1 2"/>
+                  <path d="M12 3.5c0 1-1 1-1 2s1 1 1 2"/>
+                </svg>
+              </span>
+              <div>
+                <div class="ip-card-title">Java Edition</div>
+                <div class="ip-card-edition">Recommended for PC</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="ip-address">
+            <code>fun.jalebimc.in</code>
+            <button type="button" class="btn btn-secondary copy-btn" id="copyJavaBtn" data-copied="false" aria-label="Copy Java server address">
+              <span class="default-state">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="16" height="16" aria-hidden="true"><rect x="8" y="8" width="12" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h2"/></svg>
+                Copy Java IP
+              </span>
+              <span class="copied-state">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16" aria-hidden="true"><path d="M4 12.5l5.5 5.5L20 6.5"/></svg>
+                Copied!
+              </span>
+              <span class="failed-state">Couldn't copy — select above</span>
+            </button>
+          </div>
+
+          <div class="ip-meta">
+            <div class="ip-meta-item">Port<strong>30149</strong></div>
+            <div class="ip-meta-item">Supported Version<strong>1.7.2 – 26.x</strong></div>
+          </div>
+
+          <div class="status-detail" id="javaStatusDetail" aria-live="polite">
+            <div class="status-detail-row">
+              <span>Status: <strong id="javaStatusText">Checking…</strong></span>
+              <span class="status-players" id="javaPlayerCount"></span>
+            </div>
+            <div class="status-detail-meta">
+              <span id="javaVersionDetected"></span>
+              <span id="statusUpdatedAt"></span>
+            </div>
+          </div>
+        </article>
+
+        <article class="ip-card glass">
+          <div class="ip-card-head">
+            <div class="ip-card-label">
+              <span class="ip-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
+                  <rect x="2.5" y="8" width="19" height="9" rx="4.5"/>
+                  <path d="M7 11v3M5.5 12.5h3"/>
+                  <circle cx="16" cy="11.5" r="1"/>
+                  <circle cx="18.5" cy="13.5" r="1"/>
+                </svg>
+              </span>
+              <div>
+                <div class="ip-card-title">Bedrock Edition</div>
+                <div class="ip-card-edition">Console, Mobile &amp; Windows</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="ip-address">
+            <code>bedrock.jalebimc.in</code>
+            <button type="button" class="btn btn-secondary copy-btn" id="copyBedrockBtn" data-copied="false" aria-label="Copy Bedrock server address">
+              <span class="default-state">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="16" height="16" aria-hidden="true"><rect x="8" y="8" width="12" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h2"/></svg>
+                Copy Bedrock Address
+              </span>
+              <span class="copied-state">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16" aria-hidden="true"><path d="M4 12.5l5.5 5.5L20 6.5"/></svg>
+                Copied!
+              </span>
+              <span class="failed-state">Couldn't copy — select above</span>
+            </button>
+          </div>
+
+          <div class="ip-meta">
+            <div class="ip-meta-item">Port<strong>30163</strong></div>
+            <div class="ip-meta-item">Cross-Play<strong>via Geyser</strong></div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="container">
+      <div class="container-narrow">
+        <div class="section-head">
+          <span class="eyebrow">About the network</span>
+          <h2>Built for serious, everyday play</h2>
+          <p class="lede">JalebiMC runs on a modern Velocity network with Paper backends underneath — built for players across India who want a fast, stable place to log in every day, on Java or Bedrock.</p>
+        </div>
+
+        <div class="about-grid">
+          <div class="feature-row reveal">
+            <span class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
+                <circle cx="12" cy="4.5" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="19" cy="18" r="2"/>
+                <path d="M12 6.5v4M10.5 12l-4 4M13.5 12l4 4"/>
+              </svg>
+            </span>
+            <div>
+              <h3>Velocity Network</h3>
+              <p>A Velocity proxy sits in front of every gamemode, so Lifesteal, Earth SMP and PvP all live under one address and one player experience.</p>
+            </div>
+          </div>
+
+          <div class="feature-row reveal">
+            <span class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
+                <path d="M6 3h8l4 4v14H6Z"/><path d="M14 3v4h4"/><path d="M9 8.5h2M9 12h6M9 15.5h6"/>
+              </svg>
+            </span>
+            <div>
+              <h3>Paper Backend</h3>
+              <p>Each gamemode runs on an optimized Paper server, tuned for smoother chunk loading and fewer surprises during heavy PvP.</p>
+            </div>
+          </div>
+
+          <div class="feature-row reveal">
+            <span class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
+                <path d="M12 21s7-7.2 7-12a7 7 0 1 0-14 0c0 4.8 7 12 7 12Z"/><circle cx="12" cy="9" r="2.4"/>
+              </svg>
+            </span>
+            <div>
+              <h3>Indian Routing</h3>
+              <p>Infrastructure is set up specifically to keep connections short for players across India, rather than routing through a distant region by default.</p>
+            </div>
+          </div>
+
+          <div class="feature-row reveal">
+            <span class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" width="20" height="20">
+                <circle cx="9" cy="12" r="5.5"/><circle cx="15" cy="12" r="5.5"/>
+              </svg>
+            </span>
+            <div>
+              <h3>Cross-Play</h3>
+              <p>Geyser lets Bedrock players on console, mobile or Windows play alongside Java players on the exact same worlds.</p>
+            </div>
+          </div>
+
+          <div class="feature-row reveal">
+            <span class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
+                <circle cx="9" cy="8" r="3"/><path d="M3.5 19c0-3 2.5-5.2 5.5-5.2s5.5 2.2 5.5 5.2"/>
+                <circle cx="17" cy="9" r="2.3"/><path d="M15.7 13.6c2.4.3 4.3 2.2 4.3 4.7"/>
+              </svg>
+            </span>
+            <div>
+              <h3>Community Driven</h3>
+              <p>Gamemode changes and new features are shaped around what the community is actually asking for in Discord.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="modes">
+    <div class="container">
+      <div class="section-head center">
+        <span class="eyebrow">Featured gamemodes</span>
+        <h2>Three ways to play, one network to join</h2>
+      </div>
+
+      <div class="mode-grid">
+        <article class="mode-card mode-card--lifesteal glass reveal">
+          <span class="mode-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width="22" height="22">
+              <path d="M12 20.2s-7.8-4.6-9.9-9.3C.6 7.3 2.5 3.8 6 3.3c2-.3 3.9.6 5 2.2 1.1-1.6 3-2.5 5-2.2 3.5.5 5.4 4 3.9 7.6-2.1 4.7-9.9 9.3-9.9 9.3Z"/>
+            </svg>
+          </span>
+          <h3>Lifesteal SMP</h3>
+          <p class="mode-desc">High-stakes survival where PvP kills steal hearts from the opponent — lose them all and you're out, unless someone brings you back.</p>
+          <div class="mode-tags">
+            <span class="mode-tag">Heart Mechanics</span>
+            <span class="mode-tag">Custom Recipes</span>
+            <span class="mode-tag">Raiding</span>
+            <span class="mode-tag">Team Bases</span>
+          </div>
+        </article>
+
+        <article class="mode-card mode-card--earth glass reveal">
+          <span class="mode-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" width="22" height="22">
+              <circle cx="12" cy="12" r="9"/>
+              <path d="M3 12h18M12 3c2.8 2.4 4.4 5.6 4.4 9s-1.6 6.6-4.4 9c-2.8-2.4-4.4-5.6-4.4-9S9.2 5.4 12 3Z"/>
+            </svg>
+          </span>
+          <h3>Earth SMP</h3>
+          <p class="mode-desc">A geopolitical survival map built on a 1:500 scale recreation of Earth — claim territory, found a nation, and build an economy around it.</p>
+          <div class="mode-tags">
+            <span class="mode-tag">Towns &amp; Nations</span>
+            <span class="mode-tag">Claims</span>
+            <span class="mode-tag">Trade Routes</span>
+            <span class="mode-tag">Diplomacy</span>
+          </div>
+        </article>
+
+        <article class="mode-card mode-card--pvp glass reveal">
+          <span class="mode-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" width="22" height="22">
+              <path d="M4 4l16 16"/><path d="M20 4 4 20"/>
+              <path d="M7 7l-2-2M17 7l2-2M7 17l-2 2M17 17l2 2"/>
+            </svg>
+          </span>
+          <h3>PvP &amp; Minigames</h3>
+          <p class="mode-desc">Fast, competitive gameplay across dedicated sub-servers for when you want a match, not a build project.</p>
+          <div class="mode-tags">
+            <span class="mode-tag">Duels</span>
+            <span class="mode-tag">Kit PvP</span>
+            <span class="mode-tag">Crystal PvP</span>
+            <span class="mode-tag">Minigames</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="connect">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Connect</span>
+        <h2>Everything you need to get in-game</h2>
+        <p class="lede">One address, four ways to reach the network.</p>
+      </div>
+
+      <div class="connect-panel glass">
+        <div class="connect-item">
+          <div class="connect-item-label">
+            <span class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+                <path d="M4 8h12v6a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V8Z"/><path d="M16 9h1.5a2.5 2.5 0 0 1 0 5H16"/>
+              </svg>
+            </span>
+            <div>
+              <div class="connect-item-name">Java Edition</div>
+              <div class="connect-item-value">fun.jalebimc.in</div>
+            </div>
+          </div>
+          <span class="connect-item-action">Port 30149</span>
+        </div>
+
+        <div class="connect-item">
+          <div class="connect-item-label">
+            <span class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+                <rect x="2.5" y="8" width="19" height="9" rx="4.5"/><path d="M7 11v3M5.5 12.5h3"/><circle cx="16" cy="11.5" r="1"/><circle cx="18.5" cy="13.5" r="1"/>
+              </svg>
+            </span>
+            <div>
+              <div class="connect-item-name">Bedrock Edition</div>
+              <div class="connect-item-value">bedrock.jalebimc.in</div>
+            </div>
+          </div>
+          <span class="connect-item-action">Port 30163</span>
+        </div>
+
+        <div class="connect-item">
+          <div class="connect-item-label">
+            <span class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+                <path d="M4 5.5h16v10H9l-4 3.5v-3.5H4Z"/><path d="M8 10h8M8 13h5"/>
+              </svg>
+            </span>
+            <div class="connect-item-name">Discord</div>
+          </div>
+          <a class="btn btn-secondary" href="https://dsc.gg/jalebimc" target="_blank" rel="noopener noreferrer">Join Discord</a>
+        </div>
+
+        <div class="connect-item">
+          <div class="connect-item-label">
+            <span class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+                <path d="M6 8h12l-1 12H7L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/>
+              </svg>
+            </span>
+            <div class="connect-item-name">Store</div>
+          </div>
+          <a class="btn btn-secondary" href="https://store.jalebimc.in" target="_blank" rel="noopener noreferrer">Visit Store</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="rules">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Community rules</span>
+        <h2>Keep it fair, keep it civil</h2>
+        <p class="lede">The short version — the full rules live in Discord.</p>
+      </div>
+
+      <div class="rules-grid">
+        <div class="rule-card glass reveal">
+          <span class="feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
+              <path d="M12 3l7 3v5c0 5-3 8.5-7 10-4-1.5-7-5-7-10V6Z"/><path d="M9.5 12l1.8 1.8L15 10"/>
+            </svg>
+          </span>
+          <div>
+            <h3>No Unfair Advantages</h3>
+            <p>No hacked clients, no prohibited modifications, and no exploiting bugs for an edge.</p>
+          </div>
+        </div>
+
+        <div class="rule-card glass reveal">
+          <span class="feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
+              <circle cx="9" cy="8" r="3"/><path d="M3.5 19c0-3 2.5-5.2 5.5-5.2s5.5 2.2 5.5 5.2"/><circle cx="17" cy="9" r="2.3"/><path d="M15.7 13.6c2.4.3 4.3 2.2 4.3 4.7"/>
+            </svg>
+          </span>
+          <div>
+            <h3>Respect the Community</h3>
+            <p>No harassment, threats, or deliberately disrupting other players.</p>
+          </div>
+        </div>
+
+        <div class="rule-card glass reveal">
+          <span class="feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" width="20" height="20">
+              <circle cx="12" cy="12" r="9"/><path d="M6.5 6.5l11 11"/>
+            </svg>
+          </span>
+          <div>
+            <h3>No Toxic Griefing</h3>
+            <p>Don't grief outside areas where a gamemode explicitly allows it.</p>
+          </div>
+        </div>
+
+        <div class="rule-card glass reveal">
+          <span class="feature-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
+              <path d="M14 4l6 6-2 2-6-6Z"/><path d="M12.5 8.5 4 17"/><path d="M2.5 18.5l3-3 3 3-3 3Z"/><path d="M15 15h6"/>
+            </svg>
+          </span>
+          <div>
+            <h3>Follow Staff Instructions</h3>
+            <p>Staff calls are final in the moment — appeal in Discord if you disagree.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="rules-footer">
+        <a class="btn btn-secondary" href="https://dsc.gg/jalebimc" target="_blank" rel="noopener noreferrer">View Full Rules</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="cta-panel glass reveal">
+        <h2>Join the JalebiMC Community</h2>
+        <p class="lede">Stay close to everything happening on the network.</p>
+        <ul class="cta-list">
+          <li>Announcements</li>
+          <li>Events</li>
+          <li>Server updates</li>
+          <li>Community discussions</li>
+          <li>Support</li>
+        </ul>
+        <a class="btn btn-primary" href="https://dsc.gg/jalebimc" target="_blank" rel="noopener noreferrer">Join Discord</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="#top" aria-label="JalebiMC home">
+          <span class="brand-mark" aria-hidden="true">J</span>
+          JalebiMC
+        </a>
+        <p class="footer-domain">jalebimc.in</p>
+        <p>India's cross-play Minecraft network — Lifesteal SMP, Earth SMP, PvP and Minigames.</p>
+      </div>
+
+      <div class="footer-links">
+        <h4>Network</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#modes">Gamemodes</a></li>
+          <li><a href="#connect">Connect</a></li>
+          <li><a href="#rules">Rules</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h4>Community</h4>
+        <ul>
+          <li><a href="https://dsc.gg/jalebimc" target="_blank" rel="noopener noreferrer">Discord</a></li>
+          <li><a href="https://store.jalebimc.in" target="_blank" rel="noopener noreferrer">Store</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 JalebiMC. All rights reserved.</p>
+      <p class="footer-disclaimer">Not an official Minecraft product. Not approved by or associated with Mojang Studios or Microsoft.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ---------------------------------------------------------
+     Config
+  --------------------------------------------------------- */
+  // mcstatus.io endpoint as provided. This server uses a non-default
+  // Java port (30149); if this ever stops resolving, try appending the
+  // port directly to the path: '.../java/fun.jalebimc.in:30149'
+  var STATUS_API_URL = 'https://api.mcstatus.io/v2/status/java/fun.jalebimc.in';
+  var REFRESH_INTERVAL_MS = 45000;
+  var TICK_INTERVAL_MS = 1000;
+  var COPY_RESET_MS = 2200;
+
+  var JAVA_ADDRESS = 'fun.jalebimc.in:30149';
+  var BEDROCK_ADDRESS = 'bedrock.jalebimc.in:30163';
+
+  var prefersReducedMotion = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+
+  function qs(sel, ctx) { return (ctx || document).querySelector(sel); }
+  function qsa(sel, ctx) { return Array.prototype.slice.call((ctx || document).querySelectorAll(sel)); }
+
+  /* ---------------------------------------------------------
+     Mobile navigation + sticky header state
+  --------------------------------------------------------- */
+  (function initNav() {
+    var toggle = qs('#menuToggle');
+    var menu = qs('#mobileMenu');
+    var header = qs('#siteHeader');
+    if (!toggle || !menu) return;
+
+    function closeMenu() {
+      toggle.setAttribute('aria-expanded', 'false');
+      menu.classList.remove('is-open');
+      document.body.classList.remove('menu-open');
+    }
+    function openMenu() {
+      toggle.setAttribute('aria-expanded', 'true');
+      menu.classList.add('is-open');
+      document.body.classList.add('menu-open');
+    }
+
+    toggle.addEventListener('click', function () {
+      var isOpen = toggle.getAttribute('aria-expanded') === 'true';
+      if (isOpen) closeMenu(); else openMenu();
+    });
+
+    qsa('a', menu).forEach(function (link) {
+      link.addEventListener('click', closeMenu);
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') closeMenu();
+    });
+
+    if (header) {
+      var onScroll = function () {
+        if (window.scrollY > 8) header.classList.add('is-scrolled');
+        else header.classList.remove('is-scrolled');
+      };
+      onScroll();
+      window.addEventListener('scroll', onScroll, { passive: true });
+    }
+  })();
+
+  /* ---------------------------------------------------------
+     Scroll reveal
+  --------------------------------------------------------- */
+  (function initReveal() {
+    var targets = qsa('.reveal');
+    if (!targets.length) return;
+
+    if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+      targets.forEach(function (el) { el.classList.add('is-visible'); });
+      return;
+    }
+
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+    targets.forEach(function (el) { observer.observe(el); });
+  })();
+
+  /* ---------------------------------------------------------
+     Clipboard, with fallback for browsers without the
+     async Clipboard API (or non-secure contexts).
+  --------------------------------------------------------- */
+  function copyText(text) {
+    if (navigator.clipboard && window.isSecureContext) {
+      return navigator.clipboard.writeText(text);
+    }
+    return new Promise(function (resolve, reject) {
+      try {
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'fixed';
+        ta.style.top = '-1000px';
+        ta.style.left = '-1000px';
+        document.body.appendChild(ta);
+        ta.focus();
+        ta.select();
+        var ok = false;
+        try { ok = document.execCommand('copy'); } catch (execErr) { ok = false; }
+        document.body.removeChild(ta);
+        if (ok) resolve(); else reject(new Error('execCommand copy failed'));
+      } catch (err) {
+        reject(err);
+      }
+    });
+  }
+
+  function wireCopyButton(id, text) {
+    var btn = document.getElementById(id);
+    if (!btn) return;
+    var resetTimer = null;
+
+    btn.addEventListener('click', function () {
+      copyText(text).then(function () {
+        btn.setAttribute('data-copied', 'true');
+        btn.removeAttribute('data-copy-failed');
+        clearTimeout(resetTimer);
+        resetTimer = setTimeout(function () { btn.setAttribute('data-copied', 'false'); }, COPY_RESET_MS);
+      }).catch(function () {
+        // Never let a clipboard failure break the page — the address is
+        // still visible in the card for the visitor to select manually.
+        btn.setAttribute('data-copy-failed', 'true');
+        clearTimeout(resetTimer);
+        resetTimer = setTimeout(function () { btn.removeAttribute('data-copy-failed'); }, COPY_RESET_MS);
+      });
+    });
+  }
+
+  wireCopyButton('copyJavaBtn', JAVA_ADDRESS);
+  wireCopyButton('copyBedrockBtn', BEDROCK_ADDRESS);
+
+  /* ---------------------------------------------------------
+     Live server status (Java) via mcstatus.io.
+     Never displays "Online" until the API has actually
+     responded, and fails gracefully without breaking
+     anything else on the page.
+  --------------------------------------------------------- */
+  (function initStatus() {
+    var pill = document.getElementById('networkStatusPill');
+    var pillText = document.getElementById('networkStatusText');
+    var javaStatusText = document.getElementById('javaStatusText');
+    var javaPlayerCount = document.getElementById('javaPlayerCount');
+    var javaVersionEl = document.getElementById('javaVersionDetected');
+    var updatedEl = document.getElementById('statusUpdatedAt');
+
+    if (!pill) return;
+
+    var lastFetchAt = null;
+    var tickTimer = null;
+
+    function setState(state) {
+      pill.setAttribute('data-state', state);
+    }
+
+    function renderLoading() {
+      setState('pending');
+      if (pillText) pillText.textContent = 'Checking Network';
+      if (javaStatusText) javaStatusText.textContent = 'Checking…';
+    }
+
+    function renderOnline(data) {
+      setState('online');
+      if (pillText) pillText.textContent = 'Network Online';
+      if (javaStatusText) javaStatusText.textContent = 'Online';
+
+      var online = data && data.players ? data.players.online : undefined;
+      var max = data && data.players ? data.players.max : undefined;
+      var versionName = data && data.version ? (data.version.name_clean || data.version.name) : null;
+
+      if (javaPlayerCount) {
+        javaPlayerCount.textContent = (typeof online === 'number' && typeof max === 'number')
+          ? (online + ' / ' + max + ' Players Online')
+          : '';
+      }
+      if (javaVersionEl) {
+        javaVersionEl.textContent = versionName ? ('Running ' + versionName) : '';
+      }
+    }
+
+    function renderOffline() {
+      setState('offline');
+      if (pillText) pillText.textContent = 'Network Offline';
+      if (javaStatusText) javaStatusText.textContent = 'Offline';
+      if (javaPlayerCount) javaPlayerCount.textContent = '';
+      if (javaVersionEl) javaVersionEl.textContent = '';
+    }
+
+    function renderUnavailable() {
+      setState('unavailable');
+      if (pillText) pillText.textContent = 'Status Unavailable';
+      if (javaStatusText) javaStatusText.textContent = 'Status temporarily unavailable';
+      if (javaPlayerCount) javaPlayerCount.textContent = '';
+      if (javaVersionEl) javaVersionEl.textContent = '';
+    }
+
+    function updateRelativeTime() {
+      if (!updatedEl || !lastFetchAt) return;
+      var seconds = Math.max(0, Math.round((Date.now() - lastFetchAt) / 1000));
+      var label;
+      if (seconds < 5) label = 'Updated just now';
+      else if (seconds < 60) label = 'Updated ' + seconds + 's ago';
+      else label = 'Updated ' + Math.floor(seconds / 60) + 'm ago';
+      updatedEl.textContent = label;
+    }
+
+    function startTicker() {
+      if (tickTimer) clearInterval(tickTimer);
+      tickTimer = setInterval(updateRelativeTime, TICK_INTERVAL_MS);
+    }
+
+    function fetchStatus() {
+      if (!('fetch' in window)) { renderUnavailable(); return; }
+
+      fetch(STATUS_API_URL, { cache: 'no-store' })
+        .then(function (res) {
+          if (!res.ok) throw new Error('Bad response: ' + res.status);
+          return res.json();
+        })
+        .then(function (data) {
+          if (!data || typeof data.online !== 'boolean') {
+            throw new Error('Unexpected status payload');
+          }
+          lastFetchAt = Date.now();
+          if (data.online) renderOnline(data); else renderOffline();
+          updateRelativeTime();
+        })
+        .catch(function () {
+          renderUnavailable();
+        });
+    }
+
+    renderLoading();
+    fetchStatus();
+    startTicker();
+    setInterval(fetchStatus, REFRESH_INTERVAL_MS);
+  })();
+
+})();
+</script>
+</body>
+</html>
