@@ -30,7 +30,7 @@ window.JALEBI_CONFIG = {
     java: {
       edition: "Java Edition",
       host: "fun.jalebimc.in",
-      port: 30129,
+      port: 30109,
       supportedVersions: "1.7.2 – 26.x",
       copyWithPort: true                    // copy button copies host:port (false = host only)
     },
@@ -38,12 +38,12 @@ window.JALEBI_CONFIG = {
     bedrock: {
       edition: "Bedrock Edition",
       host: "bedrock.jalebimc.in",
-      port: 30156,
+      port: 30186,
       copyWithPort: true
     },
 
     // Live status uses mcstatus.io. The Java host:port above is appended
-    // to baseUrl automatically, e.g. .../v2/status/java/fun.jalebimc.in:30129
+    // to baseUrl automatically, e.g. .../v2/status/java/fun.jalebimc.in:30109
     statusApi: {
       baseUrl: "https://api.mcstatus.io/v2/status/java/",
       refreshInterval: 45000                // milliseconds (minimum 10000 is enforced)
