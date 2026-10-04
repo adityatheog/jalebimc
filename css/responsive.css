@@ -1,0 +1,16 @@
+/* =========================================================
+   RESPONSIVE — breakpoint overrides (loaded last on purpose)
+   ========================================================= */
+@media (min-width: 640px) {
+  .connect-cards { grid-template-columns: 1fr 1fr; }
+  .rules-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (min-width: 900px) {
+  .nav-links { display: flex; }
+  .nav-cta { display: inline-flex; }
+  .menu-toggle, .mobile-menu { display: none; }
+
+  .mode-grid { grid-template-columns: repeat(3, 1fr); }
+  .footer-grid { grid-template-columns: 1.4fr 1fr 1fr; }
+}
