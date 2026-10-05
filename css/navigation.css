@@ -1,0 +1,84 @@
+/* =========================================================
+   NAVIGATION — sticky header, desktop links, menu button,
+   full-screen mobile menu
+   ========================================================= */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding-block: 1.1rem;
+  background: rgba(15,15,18,0.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid transparent;
+  transition: background var(--dur-base) var(--ease), border-color var(--dur-base) var(--ease), padding var(--dur-base) var(--ease);
+}
+.site-header.is-scrolled {
+  background: rgba(15,15,18,0.88);
+  border-bottom-color: var(--border);
+  padding-block: 0.8rem;
+}
+.nav-row { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.brand { display: flex; align-items: center; gap: 0.65rem; font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; }
+.brand-mark {
+  width: 34px; height: 34px; border-radius: 9px;
+  background: var(--accent-gradient);
+  display: grid; place-items: center;
+  color: #16100a; font-weight: 800; font-size: 1rem;
+  box-shadow: 0 6px 18px -6px rgba(255,138,0,0.55);
+  flex-shrink: 0;
+}
+.nav-links { display: none; align-items: center; gap: 2.1rem; }
+.nav-links a {
+  font-size: 0.92rem; font-weight: 500; color: var(--text-secondary);
+  position: relative; padding-block: 0.3rem;
+  transition: color var(--dur-fast) var(--ease);
+}
+.nav-links a:hover, .nav-links a:focus-visible { color: var(--text-primary); }
+.nav-links a::after {
+  content: ''; position: absolute; left: 0; right: 0; bottom: -2px; height: 2px;
+  background: var(--accent-gradient); transform: scaleX(0); transform-origin: left;
+  transition: transform var(--dur-base) var(--ease);
+}
+.nav-links a:hover::after, .nav-links a:focus-visible::after { transform: scaleX(1); }
+
+.nav-actions { display: flex; align-items: center; gap: 0.75rem; }
+.nav-cta { display: none; }
+
+/* ---------- Menu button (hamburger -> X) ---------- */
+.menu-toggle {
+  display: grid; place-items: center; width: 44px; height: 44px; border-radius: 10px;
+  background: rgba(255,255,255,0.04); border: 1px solid var(--border); flex-shrink: 0;
+}
+.menu-toggle span { position: relative; width: 18px; height: 2px; background: var(--text-primary); display: block; transition: background var(--dur-fast) var(--ease); }
+.menu-toggle span::before, .menu-toggle span::after {
+  content: ''; position: absolute; left: 0; width: 18px; height: 2px; background: var(--text-primary);
+  transition: transform var(--dur-base) var(--ease), top var(--dur-base) var(--ease);
+}
+.menu-toggle span::before { top: -6px; }
+.menu-toggle span::after { top: 6px; }
+.menu-toggle[aria-expanded="true"] span { background: transparent; }
+.menu-toggle[aria-expanded="true"] span::before { top: 0; transform: rotate(45deg); }
+.menu-toggle[aria-expanded="true"] span::after { top: 0; transform: rotate(-45deg); }
+
+/* ---------- Mobile menu ----------
+   Lives OUTSIDE <header> in the HTML: the header uses backdrop-filter,
+   which would otherwise make it the containing block for this
+   position:fixed element and stop it filling the viewport. */
+.mobile-menu {
+  position: fixed; inset: 0;
+  background: rgba(11,11,14,0.98);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 6.5rem clamp(1.25rem, 5vw, 2.5rem) 2rem;
+  display: flex; flex-direction: column; gap: 0.15rem;
+  transform: translateY(-12px); opacity: 0; visibility: hidden;
+  transition: transform var(--dur-base) var(--ease), opacity var(--dur-base) var(--ease), visibility var(--dur-base) linear;
+  overflow-y: auto;
+  z-index: 90;
+}
+.mobile-menu.is-open { transform: translateY(0); opacity: 1; visibility: visible; }
+.mobile-menu a { padding: 1rem 0; font-size: 1.2rem; font-weight: 600; border-bottom: 1px solid var(--border); }
+/* Restores .btn sizing, which the generic ".mobile-menu a" rule above would otherwise override. */
+.mobile-menu .btn { margin-top: 1.5rem; align-self: flex-start; padding: 0.9rem 1.7rem; font-size: 0.95rem; border-bottom: 0; }
+body.menu-open { overflow: hidden; }

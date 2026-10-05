@@ -1,0 +1,149 @@
+/* =========================================================
+   SECTIONS — hero, server cards, live status, about,
+   gamemodes, connect, rules, Discord CTA
+   ========================================================= */
+
+/* ---------- Hero ---------- */
+.hero { padding-top: clamp(3.25rem, 9vw, 5.5rem); padding-bottom: clamp(2rem, 5vw, 3rem); position: relative; overflow: hidden; }
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -22%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(900px, 150vw);
+  height: 640px;
+  background: radial-gradient(closest-side, rgba(255,122,0,0.18), transparent 72%);
+  pointer-events: none;
+  z-index: -1;
+}
+.hero-inner { text-align: center; max-width: 780px; margin-inline: auto; display: flex; flex-direction: column; align-items: center; }
+.hero h1 { margin-bottom: 0.85rem; }
+.hero .tagline { margin-bottom: 1.1rem; }
+.hero-support { color: var(--text-secondary); max-width: 56ch; margin-bottom: 1.85rem; font-size: 1.02rem; }
+.hero-actions { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 0.85rem; margin-bottom: 1.35rem; }
+.hero-actions.ctas { margin-bottom: 0; }
+
+/* ---------- Server connection cards ---------- */
+.connect-cards-section { padding-top: 0; padding-bottom: clamp(3rem, 7vw, 5rem); }
+.connect-cards { display: grid; gap: 1.25rem; grid-template-columns: 1fr; }
+
+.ip-card {
+  padding: clamp(1.5rem, 4vw, 2.25rem);
+  border-radius: var(--radius-lg);
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--dur-base) var(--ease), border-color var(--dur-base) var(--ease);
+}
+.ip-card:hover { transform: translateY(-4px); border-color: var(--border-strong); }
+.ip-card::before {
+  content: ''; position: absolute; inset: 0; opacity: 0;
+  background: var(--accent-gradient-soft);
+  transition: opacity var(--dur-base) var(--ease);
+  pointer-events: none;
+}
+.ip-card:hover::before { opacity: 1; }
+.ip-card > * { position: relative; z-index: 1; }
+
+.ip-card-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.4rem; gap: 0.75rem; }
+.ip-card-label { display: flex; align-items: center; gap: 0.75rem; }
+.ip-card-icon {
+  width: 42px; height: 42px; border-radius: 11px; flex-shrink: 0;
+  display: grid; place-items: center;
+  background: rgba(255,138,0,0.12); color: var(--accent-3);
+}
+.ip-card-title { font-family: var(--font-display); font-weight: 700; font-size: 1.02rem; }
+.ip-card-edition { font-size: 0.78rem; color: var(--text-tertiary); font-weight: 500; margin-top: 0.15rem; }
+
+.ip-address {
+  display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; flex-wrap: wrap;
+  background: rgba(0,0,0,0.28); border: 1px solid var(--border); border-radius: var(--radius-sm);
+  padding: 0.95rem 1.1rem; margin-bottom: 1.15rem;
+}
+.ip-address code {
+  font-family: var(--font-mono); font-size: clamp(0.92rem, 2.3vw, 1.05rem);
+  color: var(--text-primary); word-break: break-all;
+}
+
+.ip-meta { display: flex; gap: 1.5rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+.ip-meta-item { font-size: 0.78rem; color: var(--text-tertiary); }
+.ip-meta-item strong { display: block; font-family: var(--font-mono); font-size: 0.95rem; color: var(--text-secondary); font-weight: 600; margin-top: 0.2rem; }
+
+/* ---------- Live status detail ---------- */
+.status-detail { padding-top: 1.1rem; border-top: 1px solid var(--border); font-size: 0.82rem; color: var(--text-tertiary); }
+.status-detail-row { display: flex; align-items: center; justify-content: space-between; gap: 0.6rem; flex-wrap: wrap; }
+.status-detail-row strong { color: var(--text-secondary); font-weight: 600; }
+.status-players { font-family: var(--font-mono); color: var(--text-primary); font-weight: 600; }
+.status-detail-meta {
+  display: flex; justify-content: space-between; gap: 0.6rem; margin-top: 0.5rem;
+  flex-wrap: wrap; font-size: 0.74rem; color: var(--text-tertiary);
+}
+
+/* ---------- About ---------- */
+.about-grid { display: grid; gap: 0; }
+.feature-row {
+  display: grid; grid-template-columns: auto 1fr; gap: 1.15rem; align-items: flex-start;
+  padding-block: 1.5rem; border-top: 1px solid var(--border);
+}
+.feature-row:last-child { border-bottom: 1px solid var(--border); }
+.feature-row h3 { margin-bottom: 0.4rem; }
+.feature-row p { font-size: 0.95rem; max-width: 56ch; }
+
+/* ---------- Featured gamemodes ---------- */
+.mode-grid { display: grid; gap: 1.25rem; grid-template-columns: 1fr; }
+.mode-card {
+  padding: clamp(1.6rem, 4vw, 2.1rem);
+  border-radius: var(--radius-lg);
+  display: flex; flex-direction: column; gap: 1.1rem;
+  transition: transform var(--dur-base) var(--ease), border-color var(--dur-base) var(--ease);
+}
+.mode-card:hover { transform: translateY(-4px); border-color: var(--border-strong); }
+.mode-card-icon { width: 50px; height: 50px; border-radius: 14px; display: grid; place-items: center; flex-shrink: 0; }
+.mode-card h3 { font-size: 1.3rem; }
+.mode-desc { font-size: 0.95rem; }
+.mode-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: auto; padding-top: 0.5rem; }
+.mode-tag {
+  font-size: 0.74rem; font-weight: 500; padding: 0.32rem 0.7rem; border-radius: 999px;
+  background: rgba(255,255,255,0.05); border: 1px solid var(--border); color: var(--text-tertiary);
+}
+.mode-card--lifesteal .mode-card-icon { background: rgba(255,90,60,0.15); color: #ff9270; }
+.mode-card--earth .mode-card-icon { background: rgba(255,174,0,0.15); color: var(--accent-3); }
+.mode-card--pvp .mode-card-icon { background: rgba(255,214,120,0.15); color: #ffd678; }
+
+/* ---------- Connect ---------- */
+.connect-panel { border-radius: var(--radius-lg); padding: clamp(1.5rem, 4vw, 2.25rem); display: grid; gap: 0; }
+.connect-item {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+  padding-block: 1.15rem; border-top: 1px solid var(--border);
+}
+.connect-item:first-child { border-top: 0; padding-top: 0; }
+.connect-item:last-child { padding-bottom: 0; }
+.connect-item-label { display: flex; align-items: center; gap: 0.85rem; }
+.connect-item-label .feature-icon { width: 40px; height: 40px; border-radius: 11px; }
+.connect-item-name { font-weight: 600; font-size: 0.98rem; }
+.connect-item-value { font-family: var(--font-mono); font-size: 0.88rem; color: var(--text-tertiary); margin-top: 0.15rem; }
+.connect-item-action { font-family: var(--font-mono); font-size: 0.9rem; color: var(--text-secondary); }
+
+/* ---------- Rules ---------- */
+.rules-grid { display: grid; gap: 1rem; grid-template-columns: 1fr; }
+.rule-card { padding: 1.5rem; border-radius: var(--radius-md); display: flex; gap: 1.1rem; align-items: flex-start; }
+.rule-card h3 { font-size: 1.02rem; margin-bottom: 0.35rem; }
+.rule-card p { font-size: 0.9rem; }
+.rules-footer { display: flex; justify-content: center; margin-top: 2.25rem; }
+
+/* ---------- Discord CTA ---------- */
+.cta-panel {
+  border-radius: var(--radius-lg);
+  padding: clamp(2.25rem, 7vw, 3.75rem) clamp(1.5rem, 6vw, 3rem);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(255,138,0,0.09), rgba(255,138,0,0.015));
+}
+.cta-panel .lede { margin-inline: auto; margin-bottom: 1.6rem; }
+.cta-list {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem 1.5rem;
+  margin-bottom: 2.1rem; color: var(--text-secondary); font-size: 0.9rem;
+}
+.cta-list li { display: flex; align-items: center; gap: 0.5rem; }
+.cta-list li::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--accent-3); flex-shrink: 0; }

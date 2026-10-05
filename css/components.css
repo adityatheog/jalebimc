@@ -1,0 +1,81 @@
+/* =========================================================
+   COMPONENTS — buttons, glass cards, status pill, copy
+   button states, icon tiles, scroll-reveal
+   ========================================================= */
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.9rem 1.7rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  min-height: 48px;
+  white-space: nowrap;
+  transition: transform var(--dur-base) var(--ease), box-shadow var(--dur-base) var(--ease),
+              background var(--dur-base) var(--ease), border-color var(--dur-base) var(--ease);
+}
+.btn-primary {
+  background: var(--accent-gradient);
+  color: #16100a;
+  box-shadow: var(--shadow-glow);
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 46px -10px rgba(255,138,0,0.55); }
+.btn-secondary {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border-strong);
+  color: var(--text-primary);
+}
+.btn-secondary:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.3); transform: translateY(-2px); }
+
+/* ---------- Glass card ---------- */
+.glass {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: var(--shadow-soft);
+}
+
+/* ---------- Status pill ---------- */
+.status-pill {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  padding: 0.55rem 1.15rem; border-radius: 999px;
+  background: rgba(255,255,255,0.04); border: 1px solid var(--border);
+  font-size: 0.85rem; font-weight: 600; color: var(--text-secondary);
+}
+.status-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--text-tertiary); flex-shrink: 0; }
+.status-pill[data-state="online"] { color: var(--text-primary); }
+.status-pill[data-state="online"] .status-dot { background: var(--status-online); box-shadow: 0 0 0 4px rgba(62,207,106,0.16); }
+.status-pill[data-state="offline"] .status-dot { background: var(--status-offline); box-shadow: 0 0 0 4px rgba(239,74,74,0.16); }
+.status-pill[data-state="pending"] .status-dot { background: var(--status-pending); animation: statusPulse 1.6s ease-in-out infinite; }
+.status-pill[data-state="unavailable"] .status-dot { background: var(--text-tertiary); }
+@keyframes statusPulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+/* ---------- Copy button (default / copied / failed states) ---------- */
+/* The failed message is long; let it wrap instead of overflowing the card on small phones. */
+.copy-btn { position: relative; white-space: normal; text-align: center; }
+.copy-btn .default-state, .copy-btn .copied-state, .copy-btn .failed-state {
+  display: none; align-items: center; justify-content: center; gap: 0.5rem;
+}
+.copy-btn .default-state { display: flex; }
+.copy-btn[data-copied="true"] .default-state { display: none; }
+.copy-btn[data-copied="true"] .copied-state { display: flex; }
+.copy-btn[data-copy-failed="true"] .default-state { display: none; }
+.copy-btn[data-copy-failed="true"] .failed-state { display: flex; }
+
+/* ---------- Icon tile (about, connect, rules) ---------- */
+.feature-icon {
+  width: 44px; height: 44px; border-radius: 12px; flex-shrink: 0;
+  background: rgba(255,138,0,0.1); color: var(--accent-3);
+  display: grid; place-items: center;
+}
+
+/* ---------- Scroll reveal ----------
+   Hidden state only applies when JS is running (the .js class is set
+   in <head>), so content is never stuck invisible without JavaScript. */
+.js .reveal { opacity: 0; transform: translateY(20px); transition: opacity 650ms var(--ease), transform 650ms var(--ease); }
+.js .reveal.is-visible { opacity: 1; transform: none; }
