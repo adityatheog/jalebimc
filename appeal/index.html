@@ -20,25 +20,44 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
 
   <!-- Shared site styles (one level up). Remove any file that does not exist in your repo. -->
-  <link rel="stylesheet" href="../css/variables.css">
-  <link rel="stylesheet" href="../css/reset.css">
-  <link rel="stylesheet" href="../css/base.css">
-  <link rel="stylesheet" href="../css/appeal.css">
+  <script>document.documentElement.classList.add('js');</script>
+<link rel="stylesheet" href="../css/variables.css">
+<link rel="stylesheet" href="../css/reset.css">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/components.css">
+<link rel="stylesheet" href="../css/navigation.css">
+<link rel="stylesheet" href="../css/footer.css">
+<link rel="stylesheet" href="../css/responsive.css">
+<link rel="stylesheet" href="../css/appeal.css">
 </head>
 <body>
-  <header class="ap-header">
-    <div class="ap-header-inner">
-      <a class="ap-brand" href="/" aria-label="JalebiMC home">Jalebi<span>MC</span></a>
-      <button class="ap-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="siteNav" aria-label="Toggle navigation">☰</button>
-      <nav class="ap-nav" id="siteNav" aria-label="Main">
-        <a href="/#about">About</a>
-        <a href="/#modes">Modes</a>
-        <a href="/#connect">Connect</a>
-        <a href="/#rules">Rules</a>
-        <a href="/appeal/" aria-current="page">Appeal</a>
-      </nav>
-    </div>
-  </header>
+  <a href="#main" class="skip-link">Skip to main content</a>
+<header class="site-header" id="siteHeader">
+<div class="container nav-row">
+<a href="/" class="brand" aria-label="JalebiMC home"><span class="brand-mark" aria-hidden="true" data-config-text="site.shortMark">J</span><span data-config-text="site.name">JalebiMC</span></a>
+<nav class="nav-links" aria-label="Primary">
+<a href="/#about">About</a>
+<a href="/#lifesteal">Lifesteal</a>
+<a href="/#connect">Connect</a>
+<a href="/#rules">Rules</a>
+<a href="/#faq">FAQ</a>
+<a href="/appeal/" aria-current="page">Appeal</a>
+</nav>
+<div class="nav-actions">
+<a class="btn btn-primary nav-cta" href="https://dsc.gg/jalebimc" data-config-href="links.discord" target="_blank" rel="noopener noreferrer">Join Discord</a>
+<button type="button" class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Toggle navigation menu"><span></span></button>
+</div>
+</div>
+</header>
+<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile">
+<a href="/#about">About</a>
+<a href="/#lifesteal">Lifesteal</a>
+<a href="/#connect">Connect</a>
+<a href="/#rules">Rules</a>
+<a href="/#faq">FAQ</a>
+<a href="/appeal/" aria-current="page">Appeal</a>
+<a class="btn btn-primary" href="https://dsc.gg/jalebimc" data-config-href="links.discord" target="_blank" rel="noopener noreferrer">Join Discord</a>
+</nav>
 
   <main class="appeal appeal-main" id="main">
     <div class="appeal-wrap">
@@ -99,28 +118,21 @@
     </div>
   </main>
 
-  <footer class="ap-footer">
-    <div class="ap-footer-inner">
-      <span>© <span id="year">2026</span> JalebiMC · jalebimc.in</span>
-      <nav aria-label="Footer">
-        <a href="/">Home</a>
-        <a href="/#connect">Connect</a>
-        <a href="/#rules">Rules</a>
-        <a href="/appeal/">Appeal</a>
-      </nav>
-    </div>
-  </footer>
+  <footer class="site-footer">
+<div class="container">
+<div class="footer-bottom" style="border-top:0;padding-top:0">
+<p>© <span data-config-text="site.year">2026</span> <span data-config-text="site.name">JalebiMC</span>. All rights reserved. <a href="/">Home</a> · <a href="/#rules">Rules</a> · <a href="/#faq">FAQ</a></p>
+<p class="footer-disclaimer">Not an official Minecraft product. Not approved by or associated with Mojang Studios or Microsoft.</p>
+</div>
+</div>
+</footer>
 
-  <script>
+  <script src="../config/site-config.js" defer></script>
+<script src="../js/navigation.js" defer></script>
+<script src="../js/main.js" defer></script>
+<script>
     (function () {
-      var toggle = document.getElementById('navToggle');
-      var nav = document.getElementById('siteNav');
-      toggle.addEventListener('click', function () {
-        var open = nav.classList.toggle('open');
-        toggle.setAttribute('aria-expanded', String(open));
-      });
-      document.getElementById('year').textContent = new Date().getFullYear();
-
+      
       var form = document.getElementById('appealForm');
       var btn = document.getElementById('submitBtn');
       var label = document.getElementById('submitLabel');
