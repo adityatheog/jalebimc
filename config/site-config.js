@@ -15,12 +15,12 @@ window.JALEBI_CONFIG = {
     shortMark: "J",                         // letter shown in the logo square
     domain: "jalebimc.in",                  // shown in the footer
     url: "https://jalebimc.in/",            // canonical + Open Graph URL (keep trailing slash)
-    title: "JalebiMC — India's Premier Cross-Play Minecraft Network",
-    description: "JalebiMC is an Indian Minecraft network featuring Lifesteal SMP, Earth SMP, PvP and Minigames with Java and Bedrock cross-play.",
-    socialDescription: "Lifesteal SMP, Earth SMP, PvP and Minigames — Java and Bedrock cross-play, built for players across India.",
-    eyebrow: "India's Cross-Play Minecraft Network",
-    tagline: "India's Premier Cross-Play Minecraft Network",
-    footerBlurb: "India's cross-play Minecraft network — Lifesteal SMP, Earth SMP, PvP and Minigames.",
+    title: "JalebiMC — India's Lifesteal Minecraft Server (Java & Bedrock)",
+    description: "JalebiMC is an Indian Lifesteal SMP Minecraft server with Java and Bedrock cross-play. Steal hearts, raid bases and join the community.",
+    socialDescription: "Lifesteal SMP for players across India — Java and Bedrock cross-play.",
+    eyebrow: "India's Lifesteal Minecraft Server",
+    tagline: "Lifesteal SMP. Java & Bedrock. Built for India.",
+    footerBlurb: "India's cross-play Lifesteal Minecraft server for Java and Bedrock players.",
     locale: "en_IN",
     themeColor: "#ff8a00",
     year: 2026                              // copyright year
