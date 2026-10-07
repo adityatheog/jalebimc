@@ -176,3 +176,5 @@
 
 .rules-footer { flex-wrap: wrap; gap: 0.85rem; }
 .nav-links a[aria-current="page"] { color: var(--text-primary); }
+
+.hero-logo { width: clamp(88px, 22vw, 112px); height: auto; margin-bottom: 1.25rem; filter: drop-shadow(0 14px 30px rgba(255,138,0,0.35)); }
