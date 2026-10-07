@@ -1,6 +1,6 @@
 # JalebiMC Website
 
-Static website for **JalebiMC**, an Indian cross-play (Java + Bedrock) Minecraft network featuring Lifesteal SMP, Earth SMP, PvP and Minigames. Plain HTML, CSS and vanilla JavaScript. No frameworks, no build step, no backend, so it runs as-is on GitHub Pages.
+Static website for **JalebiMC**, an Indian cross-play (Java + Bedrock) Minecraft network featuring a Lifesteal SMP. Plain HTML, CSS and vanilla JavaScript. No frameworks, no build step, no backend, so it runs as-is on GitHub Pages.
 
 ## Structure
 
