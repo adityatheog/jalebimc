@@ -1,0 +1,20 @@
+/* =========================================================
+   FOOTER
+   ========================================================= */
+.site-footer { border-top: 1px solid var(--border); padding-block: 3rem 2.25rem; }
+.footer-grid { display: grid; gap: 2.5rem; grid-template-columns: 1fr; margin-bottom: 2.5rem; }
+.footer-brand .brand { margin-bottom: 0.9rem; }
+.footer-brand .footer-domain { font-family: var(--font-mono); font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 0.6rem; }
+.footer-brand p:last-child { font-size: 0.88rem; max-width: 34ch; }
+.footer-links h3 {
+  font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-tertiary);
+  margin-bottom: 1rem; font-family: var(--font-body); font-weight: 600;
+}
+.footer-links ul { display: flex; flex-direction: column; gap: 0.7rem; }
+.footer-links a { font-size: 0.9rem; color: var(--text-secondary); transition: color var(--dur-fast) var(--ease); }
+.footer-links a:hover, .footer-links a:focus-visible { color: var(--text-primary); }
+.footer-bottom {
+  display: flex; flex-direction: column; gap: 0.85rem; padding-top: 2rem;
+  border-top: 1px solid var(--border); font-size: 0.8rem; color: var(--text-tertiary);
+}
+.footer-disclaimer { max-width: 62ch; line-height: 1.65; }

@@ -1,0 +1,31 @@
+# JalebiMC
+
+> JalebiMC is an Indian Lifesteal SMP Minecraft server with Java and Bedrock cross-play. Winning a PvP fight steals a heart from your opponent; players raid, build team bases and can be revived.
+
+## Connect
+- Java Edition: fun.jalebimc.in port 30109 (versions 1.7.2 – 26.x)
+- Bedrock Edition: bedrock.jalebimc.in port 30186
+- Discord: https://dsc.gg/jalebimc
+- Web store: https://store.jalebimc.in
+
+## Pages
+- [Home](https://jalebimc.in/): overview and live status
+- [How to Join](https://jalebimc.in/how-to-join): Java and Bedrock steps
+- [Store](https://jalebimc.in/store): ranks, keys and coin packages, prices in INR
+- [Rules](https://jalebimc.in/rules): community rules
+- [FAQ](https://jalebimc.in/faq): common questions
+- [Punishment Appeal](https://jalebimc.in/appeal): form to appeal a ban or mute
+
+## Store prices (INR)
+- Nawab rank: ₹100 — Nawab Prefix; Access to 2 /sethome Homes; Access to 4 /ah listings; Access to 5 /team members; Access to VIP /kit
+- Yoddha rank: ₹200 — Yoddha Prefix; 12-Hour Death Ban; Access to 2 /sethome Homes; Access to 5 /ah listings; Access to 7 /team members; Access to Titan /kit
+- Maharaj rank: ₹400 — Maharaj Prefix; Access to 2 /sethome Homes; Access to 4 /ah listings; Access to 6 /team members; Access to Momo /kit
+- Samrat rank: ₹700 — Samrat Prefix; Access to 3 /sethome Homes; Access to 10 /ah listings; Access to 9 /team members; Access to Jhapali /kit; Access to /enderchest
+- Rajya Ki Chabi (x1): ₹10
+- Janm Yantra Ki Chabi (x1): ₹20
+- Maharaj Ki Chabi (x1): ₹40
+- Samrat Ki Chabi (x1): ₹50
+- Coin Package #1: 500 coins for ₹50
+- Coin Package #2: 1,500 coins for ₹100
+- Coin Package #3: 2,000 coins for ₹200
+- Coin Package #4: 5,000 coins for ₹500

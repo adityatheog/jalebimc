@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" data-page="sub">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Punishment Appeal — JalebiMC</title>
+<meta name="description" content="Appeal a JalebiMC ban or mute. Tell staff what happened and they will review your case.">
+<meta name="robots" content="noindex, follow">
+<meta name="theme-color" content="#ff8a00">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://jalebimc.in/appeal">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="LLM-readable summary">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="JalebiMC">
+<meta property="og:title" content="Punishment Appeal — JalebiMC">
+<meta property="og:description" content="Appeal a JalebiMC ban or mute. Tell staff what happened and they will review your case.">
+<meta property="og:url" content="https://jalebimc.in/appeal">
+<meta property="og:locale" content="en_IN">
+<meta property="og:image" content="https://jalebimc.in/assets/images/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Punishment Appeal — JalebiMC">
+<meta name="twitter:description" content="Appeal a JalebiMC ban or mute. Tell staff what happened and they will review your case.">
+<meta name="twitter:image" content="https://jalebimc.in/assets/images/og-image.png">
+<link rel="icon" href="/assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/icons/favicon.png" type="image/png" sizes="64x64">
+<link rel="apple-touch-icon" href="/assets/images/logo/jalebi-mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+<script src="/js/boot.js"></script>
+<link rel="stylesheet" href="/css/variables.css">
+<link rel="stylesheet" href="/css/reset.css">
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/css/components.css">
+<link rel="stylesheet" href="/css/navigation.css">
+<link rel="stylesheet" href="/css/sections.css">
+<link rel="stylesheet" href="/css/footer.css">
+<link rel="stylesheet" href="/css/responsive.css">
+<link rel="stylesheet" href="/css/appeal.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://jalebimc.in/"},{"@type":"ListItem","position":2,"name":"Appeal","item":"https://jalebimc.in/appeal"}]}</script>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to main content</a>
+<p class="visually-hidden" id="copyAnnouncer" role="status"></p>
+<header class="site-header" id="siteHeader">
+<div class="container nav-row">
+<a href="/" class="brand" aria-label="JalebiMC home"><span class="brand-mark" aria-hidden="true"><img src="/assets/images/logo/jalebi-mark.webp" alt="" width="38" height="38"></span><span>JalebiMC</span></a>
+<nav class="nav-links" aria-label="Primary">
+<a href="/">Home</a>
+<a href="/how-to-join">How to Join</a>
+<a href="/store">Store</a>
+<a href="/rules">Rules</a>
+<a href="/faq">FAQ</a>
+<a href="/appeal" aria-current="page">Appeal</a>
+</nav>
+<div class="nav-actions">
+<a class="btn btn-primary nav-cta" href="https://dsc.gg/jalebimc" data-config-href="links.discord" target="_blank" rel="noopener noreferrer">Join Discord</a>
+<button type="button" class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Toggle navigation menu"><span></span></button>
+</div>
+</div>
+</header>
+<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile">
+<a href="/">Home</a>
+<a href="/how-to-join">How to Join</a>
+<a href="/store">Store</a>
+<a href="/rules">Rules</a>
+<a href="/faq">FAQ</a>
+<a href="/appeal" aria-current="page">Appeal</a>
+<a class="btn btn-primary" href="https://dsc.gg/jalebimc" data-config-href="links.discord" target="_blank" rel="noopener noreferrer">Join Discord</a>
+</nav>
+<main id="main" tabindex="-1">
+<section class="appeal appeal-main">
+    <div class="appeal-wrap">
+      <p class="appeal-eyebrow">JalebiMC Support</p>
+      <h1 class="appeal-title">Punishment Appeal</h1>
+      <p class="appeal-lead">If you believe your punishment was issued by mistake or deserves another look, send us an appeal. Staff review every submission.</p>
+
+      <section class="appeal-card" aria-labelledby="formTitle">
+        <h2 id="formTitle">Submit an Appeal</h2>
+        <p>Provide accurate information so our staff team can review your punishment.</p>
+
+        <form id="appealForm" novalidate>
+          <div class="field">
+            <label for="username">Minecraft Username <span class="req" aria-hidden="true">*</span></label>
+            <input type="text" id="username" name="username" required minlength="3" maxlength="17" autocomplete="username" autocapitalize="off" spellcheck="false" placeholder="Your Minecraft username" aria-describedby="usernameErr">
+            <p class="error-text" id="usernameErr"></p>
+          </div>
+
+          <div class="field">
+            <label for="punishmentType">Punishment Type <span class="req" aria-hidden="true">*</span></label>
+            <select id="punishmentType" name="punishmentType" required aria-describedby="typeErr">
+              <option value="" selected disabled>Select a type</option>
+              <option value="Ban">Ban</option>
+              <option value="Mute">Mute</option>
+            </select>
+            <p class="error-text" id="typeErr"></p>
+          </div>
+
+          <div class="field">
+            <label for="punishmentId">Punishment ID <span class="opt">(optional)</span></label>
+            <input type="text" id="punishmentId" name="punishmentId" maxlength="32" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="e.g. #1234" aria-describedby="idHint idErr">
+            <p class="hint" id="idHint">Shown in your ban or mute message, if you have it.</p>
+            <p class="error-text" id="idErr"></p>
+          </div>
+
+          <div class="field">
+            <label for="reason">Reason <span class="req" aria-hidden="true">*</span></label>
+            <textarea id="reason" name="reason" required minlength="20" maxlength="1000" placeholder="Explain what happened and why your punishment should be reviewed." aria-describedby="reasonHint reasonErr"></textarea>
+            <p class="hint" id="reasonHint">20–1000 characters. <span class="counter" id="reasonCount">0 / 1000</span></p>
+            <p class="error-text" id="reasonErr"></p>
+          </div>
+
+          <!-- Honeypot: hidden from people, bots tend to fill it -->
+          <div class="hp" aria-hidden="true">
+            <label for="website">Leave this field empty</label>
+            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+          </div>
+
+          <button type="submit" class="appeal-submit" id="submitBtn">
+            <span class="spinner" aria-hidden="true"></span>
+            <span id="submitLabel">Submit appeal</span>
+          </button>
+
+          <div class="status success" id="successBox" role="status" hidden></div>
+          <div class="status error" id="errorBox" role="alert" hidden></div>
+        </form>
+      </section>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">
+<div class="container">
+<div class="footer-grid">
+<div class="footer-brand">
+<a href="/" class="brand" aria-label="JalebiMC home"><span class="brand-mark" aria-hidden="true"><img src="/assets/images/logo/jalebi-mark.webp" alt="" width="38" height="38"></span><span>JalebiMC</span></a>
+<p class="footer-domain">jalebimc.in</p>
+<p>India's cross-play Lifesteal Minecraft server for Java and Bedrock players.</p>
+</div>
+<div class="footer-links"><h3>Play</h3><ul><li><a href="/">Home</a></li><li><a href="/how-to-join">How to Join</a></li><li><a href="/store">Store</a></li></ul></div>
+<div class="footer-links"><h3>Support</h3><ul><li><a href="/rules">Rules</a></li><li><a href="/faq">FAQ</a></li><li><a href="/appeal">Punishment Appeal</a></li></ul></div>
+<div class="footer-links"><h3>Community</h3><ul><li><a href="https://dsc.gg/jalebimc" data-config-href="links.discord" target="_blank" rel="noopener noreferrer">Discord</a></li><li><a href="https://store.jalebimc.in" data-config-href="links.store" target="_blank" rel="noopener noreferrer">Web store</a></li><li><a href="/llms.txt">For AI assistants</a></li></ul></div>
+</div>
+<div class="footer-bottom">
+<p>© <span data-config-text="site.year">2026</span> JalebiMC. All rights reserved.</p>
+<p class="footer-disclaimer">Not an official Minecraft product. Not approved by or associated with Mojang Studios or Microsoft.</p>
+</div>
+</div>
+</footer>
+<script src="/config/site-config.js" defer></script>
+<script src="/js/navigation.js" defer></script>
+<script src="/js/main.js" defer></script>
+<script src="/js/appeal.js" defer></script>
+</body>
+</html>
