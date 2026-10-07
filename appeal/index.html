@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Punishment Appeal — JalebiMC</title>
+  <meta name="description" content="Submit a punishment appeal for the JalebiMC Minecraft server. Our staff team will review your ban or mute.">
+  <meta name="theme-color" content="#0f0f12">
+  <link rel="canonical" href="https://jalebimc.in/appeal">
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="JalebiMC">
+  <meta property="og:title" content="Punishment Appeal — JalebiMC">
+  <meta property="og:description" content="Submit a punishment appeal for the JalebiMC Minecraft server.">
+  <meta property="og:url" content="https://jalebimc.in/appeal">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+  <!-- Shared site styles (one level up). Remove any file that does not exist in your repo. -->
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/appeal.css">
+</head>
+<body>
+  <header class="ap-header">
+    <div class="ap-header-inner">
+      <a class="ap-brand" href="/" aria-label="JalebiMC home">Jalebi<span>MC</span></a>
+      <button class="ap-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="siteNav" aria-label="Toggle navigation">☰</button>
+      <nav class="ap-nav" id="siteNav" aria-label="Main">
+        <a href="/#about">About</a>
+        <a href="/#modes">Modes</a>
+        <a href="/#connect">Connect</a>
+        <a href="/#rules">Rules</a>
+        <a href="/appeal/" aria-current="page">Appeal</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="appeal appeal-main" id="main">
+    <div class="appeal-wrap">
+      <p class="appeal-eyebrow">JalebiMC Support</p>
+      <h1 class="appeal-title">Punishment Appeal</h1>
+      <p class="appeal-lead">If you believe your punishment was issued by mistake or deserves another look, send us an appeal. Staff review every submission.</p>
+
+      <section class="appeal-card" aria-labelledby="formTitle">
+        <h2 id="formTitle">Submit an Appeal</h2>
+        <p>Provide accurate information so our staff team can review your punishment.</p>
+
+        <form id="appealForm" novalidate>
+          <div class="field">
+            <label for="username">Minecraft Username <span class="req" aria-hidden="true">*</span></label>
+            <input type="text" id="username" name="username" required minlength="3" maxlength="17" autocomplete="username" autocapitalize="off" spellcheck="false" placeholder="Your Minecraft username" aria-describedby="usernameErr">
+            <p class="error-text" id="usernameErr"></p>
+          </div>
+
+          <div class="field">
+            <label for="punishmentType">Punishment Type <span class="req" aria-hidden="true">*</span></label>
+            <select id="punishmentType" name="punishmentType" required aria-describedby="typeErr">
+              <option value="" selected disabled>Select a type</option>
+              <option value="Ban">Ban</option>
+              <option value="Mute">Mute</option>
+            </select>
+            <p class="error-text" id="typeErr"></p>
+          </div>
+
+          <div class="field">
+            <label for="punishmentId">Punishment ID <span class="opt">(optional)</span></label>
+            <input type="text" id="punishmentId" name="punishmentId" maxlength="32" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="e.g. #1234" aria-describedby="idHint idErr">
+            <p class="hint" id="idHint">Shown in your ban or mute message, if you have it.</p>
+            <p class="error-text" id="idErr"></p>
+          </div>
+
+          <div class="field">
+            <label for="reason">Reason <span class="req" aria-hidden="true">*</span></label>
+            <textarea id="reason" name="reason" required minlength="20" maxlength="1000" placeholder="Explain what happened and why your punishment should be reviewed." aria-describedby="reasonHint reasonErr"></textarea>
+            <p class="hint" id="reasonHint">20–1000 characters. <span class="counter" id="reasonCount">0 / 1000</span></p>
+            <p class="error-text" id="reasonErr"></p>
+          </div>
+
+          <!-- Honeypot: hidden from people, bots tend to fill it -->
+          <div class="hp" aria-hidden="true">
+            <label for="website">Leave this field empty</label>
+            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+          </div>
+
+          <button type="submit" class="appeal-submit" id="submitBtn">
+            <span class="spinner" aria-hidden="true"></span>
+            <span id="submitLabel">Submit appeal</span>
+          </button>
+
+          <div class="status success" id="successBox" role="status" hidden></div>
+          <div class="status error" id="errorBox" role="alert" hidden></div>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <footer class="ap-footer">
+    <div class="ap-footer-inner">
+      <span>© <span id="year">2026</span> JalebiMC · jalebimc.in</span>
+      <nav aria-label="Footer">
+        <a href="/">Home</a>
+        <a href="/#connect">Connect</a>
+        <a href="/#rules">Rules</a>
+        <a href="/appeal/">Appeal</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var toggle = document.getElementById('navToggle');
+      var nav = document.getElementById('siteNav');
+      toggle.addEventListener('click', function () {
+        var open = nav.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', String(open));
+      });
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      var form = document.getElementById('appealForm');
+      var btn = document.getElementById('submitBtn');
+      var label = document.getElementById('submitLabel');
+      var okBox = document.getElementById('successBox');
+      var errBox = document.getElementById('errorBox');
+      var reason = document.getElementById('reason');
+      var count = document.getElementById('reasonCount');
+
+      var f = {
+        username: document.getElementById('username'),
+        type: document.getElementById('punishmentType'),
+        id: document.getElementById('punishmentId'),
+        reason: reason
+      };
+      var errs = {
+        username: document.getElementById('usernameErr'),
+        type: document.getElementById('typeErr'),
+        id: document.getElementById('idErr'),
+        reason: document.getElementById('reasonErr')
+      };
+
+      reason.addEventListener('input', function () {
+        count.textContent = reason.value.length + ' / 1000';
+      });
+
+      function setErr(key, msg) {
+        errs[key].textContent = msg;
+        f[key].setAttribute('aria-invalid', msg ? 'true' : 'false');
+        return !msg;
+      }
+
+      function validate() {
+        var u = f.username.value.trim();
+        var id = f.id.value.trim();
+        var r = f.reason.value.trim();
+        var results = [
+          setErr('username', /^[A-Za-z0-9_. ]{3,17}$/.test(u) ? '' : 'Enter a valid username (3–17 letters, numbers, spaces, . or _).'),
+          setErr('type', (f.type.value === 'Ban' || f.type.value === 'Mute') ? '' : 'Choose Ban or Mute.'),
+          setErr('id', (!id || /^[A-Za-z0-9#_-]{1,32}$/.test(id)) ? '' : 'Use only letters, numbers, #, _ or -.'),
+          setErr('reason', (r.length >= 20 && r.length <= 1000) ? '' : 'Your reason must be between 20 and 1000 characters.')
+        ];
+        if (results.every(Boolean)) return true;
+        var first = form.querySelector('[aria-invalid="true"]');
+        if (first) first.focus();
+        return false;
+      }
+
+      function setBusy(busy) {
+        btn.disabled = busy;
+        btn.setAttribute('aria-busy', String(busy));
+        label.textContent = busy ? 'Submitting...' : 'Submit appeal';
+      }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        okBox.hidden = true;
+        errBox.hidden = true;
+        if (!validate()) return;
+
+        setBusy(true);
+        fetch('/api/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            username: f.username.value.trim(),
+            punishmentType: f.type.value,
+            punishmentId: f.id.value.trim(),
+            reason: f.reason.value.trim(),
+            website: document.getElementById('website').value
+          })
+        })
+          .then(function (res) {
+            return res.json().catch(function () { return {}; }).then(function (data) {
+              return { ok: res.ok && data.success === true, status: res.status, data: data };
+            });
+          })
+          .then(function (r) {
+            if (r.ok) {
+              okBox.textContent = 'Your appeal was submitted successfully. Our staff team will review it.';
+              okBox.hidden = false;
+              form.reset();
+              count.textContent = '0 / 1000';
+              Object.keys(f).forEach(function (k) { setErr(k, ''); });
+            } else {
+              var msg = 'We couldn\u2019t submit your appeal right now. Please try again later.';
+              if (r.status === 400 && r.data && r.data.message) msg = r.data.message;
+              if (r.status === 429) msg = 'Too many appeals submitted. Please wait a while before trying again.';
+              errBox.textContent = msg;
+              errBox.hidden = false;
+            }
+          })
+          .catch(function () {
+            errBox.textContent = 'We couldn\u2019t submit your appeal right now. Please try again later.';
+            errBox.hidden = false;
+          })
+          .then(function () { setBusy(false); });
+      });
+    })();
+  </script>
+</body>
+</html>
